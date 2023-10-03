@@ -1,5 +1,5 @@
 import numpy as np
-from scipy.optimize import fsolve, root
+from scipy.optimize import root
 
 # Define your r11...r33 from your desired matrix
 r11 = 1/np.sqrt(2)
@@ -20,13 +20,13 @@ w21 = 0
 w22 = 1/np.sqrt(2)
 w23 = -1/np.sqrt(2)
 
-# Define your system of equations as functions
+# Define your system of equations
 def equations(guess):
-    # Extract x and y from the input array initial_guess
+    # Extract t1 and t2 from the input array guess
     t1 = guess[0]
     t2 = guess[1]
 
-    # Define your system of equations
+    # Define your equations (all equal to zero!)
     eq1 = np.cos(t1)*np.cos(t2) + (-w13*np.sin(t1))*(w23*np.sin(t2)) - r11
     eq2 = np.cos(t1)*(-w23*np.sin(t2)) + (-w13*np.sin(t1))*(np.cos(t2)+np.power(w22, 2)*(1-np.cos(t2))) - r12
     eq3 = np.cos(t1)*(w22*np.sin(t2)) + (-w13*np.sin(t1))*(w22*w23*(1-np.cos(t2))) - r13
