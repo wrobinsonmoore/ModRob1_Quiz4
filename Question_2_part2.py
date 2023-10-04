@@ -14,9 +14,13 @@ r31 = R_desired[2][0]
 r32 = R_desired[2][1]
 r33 = R_desired[2][2]
 
-# We obtain theta by:
+# We obtain theta by.
 theta_rad = np.arccos((r11 + r22 + r33 -1)/2)
 theta_deg = theta_rad*180/np.pi
+
+# Uncomment To consider option 2 (Obtained manually through knowledge of the basic Cosine Function graph)
+# theta_rad = 4*np.pi/3
+# theta_deg = theta_rad*180/np.pi
 
 print(f"Theta = {theta_rad} rads\nTheta = {theta_deg} deg.")
 
